@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <item
+        android:id="@+id/nav_home"
+        android:title="@string/nav_home" />
+    <item
+        android:id="@+id/nav_new_brand"
+        android:title="@string/nav_new_brand" />
+    <item
+        android:id="@+id/nav_new_stock"
+        android:title="@string/nav_new_stock"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/nav_contact"
+        android:title="@string/nav_contact"/>
+    <item
+        android:title="@string/nav_profile">
+            <menu>
+                <item
+                    android:id="@+id/nav_log_out"
+                    android:title="@string/nav_log_out">
+                </item>
+            </menu>
+    </item>
+</menu>

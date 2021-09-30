@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/signUp">
+
+    <activity
+        android:id="@+id/signUp"
+        android:name="com.example.groceryshopping.SignUp"
+        android:label="activity_sign_up"
+        tools:layout="@layout/activity_sign_up">
+        <action
+            android:id="@+id/action_signUp_to_home"
+            app:destination="@id/home"
+            app:popUpToInclusive="true"/>
+    </activity>
+    <activity
+        android:id="@+id/home"
+        android:name="com.example.groceryshopping.Home"
+        android:label="activity_home"
+        tools:layout="@layout/activity_home">
+        <action
+            android:id="@+id/action_home_to_product"
+            app:destination="@id/product" />
+    </activity>
+    <activity
+        android:id="@+id/product"
+        android:name="com.example.groceryshopping.Product"
+        android:label="activity_product"
+        tools:layout="@layout/activity_product" >
+        <action
+            android:id="@+id/action_product_to_productDetail"
+            app:destination="@id/productDetail" />
+    </activity>
+    <activity
+        android:id="@+id/productDetail"
+        android:name="com.example.groceryshopping.ProductDetail"
+        android:label="activity_product_detail"
+        tools:layout="@layout/activity_product_detail" />
+    <activity
+        android:id="@+id/checkOut"
+        android:name="com.example.groceryshopping.CheckOut"
+        android:label="activity_check_out"
+        tools:layout="@layout/activity_check_out" />
+</navigation>

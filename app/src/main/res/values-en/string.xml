@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">GroceryShopping</string>
     <string name="login">Login</string>
@@ -12,7 +13,7 @@
     <string name="email">userName@gmail.com</string>
     <string name="nav_home">Home</string>
     <string name="nav_new_brand">New Brand</string>
-    <string name="nav_new_stock">New Stock</string>
+    <string name="nav_new_stock">New Stock</string>>
     <string name="nav_check_out">Check Out</string>
     <string name="nav_contact">Contact</string>
     <string name="nav_profile">Profile</string>
