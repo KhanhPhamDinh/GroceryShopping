@@ -15,4 +15,12 @@
         <item name="android:fontFamily">@font/poppins_regular</item>
         <item name="android:labelTextSize">14dp</item>
     </style>
+    <style name="normal_text" parent="@style/TextAppearance.AppCompat.Medium">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:labelTextSize">20dp</item>
+    </style>
+    <style name="small_text" parent="@style/TextAppearance.AppCompat.Medium">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:labelTextSize">16dp</item>
+    </style>
 </resources>

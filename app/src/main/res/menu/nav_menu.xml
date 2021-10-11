@@ -1,29 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_home"
-        android:title="@string/nav_home" />
-    <item
-        android:id="@+id/nav_new_brand"
-        android:title="@string/nav_new_brand" />
-    <item
-        android:id="@+id/nav_new_stock"
-        android:title="@string/nav_new_stock"
-        app:showAsAction="never"/>
+        android:title="@string/nav_home"
+        android:icon="@drawable/ic_home_active"/>
 
     <item
-        android:id="@+id/nav_contact"
-        android:title="@string/nav_contact"/>
+        android:id="@+id/nav_search"
+        android:title="@string/nav_search"
+        android:icon="@drawable/ic_search_default"/>
     <item
-        android:title="@string/nav_profile">
-            <menu>
-                <item
-                    android:id="@+id/nav_log_out"
-                    android:title="@string/nav_log_out">
-                </item>
-            </menu>
-    </item>
+        android:id="@+id/nav_bookmark"
+        android:title="@string/nav_bookmark"
+        android:icon="@drawable/ic_bookmark_default"/>
 </menu>

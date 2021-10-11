@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="tangerine_yellow">#FFFFC700</color>
     <color name="ochre">#FFD87716</color>
     <color name="pink_wan">#FFB5B5B5</color>
     <color name="snow">#FFFCFCFC</color>

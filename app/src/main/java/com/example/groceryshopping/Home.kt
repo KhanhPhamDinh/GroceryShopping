@@ -1,42 +1,48 @@
 package com.example.groceryshopping
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
-import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
-import com.google.android.material.navigation.NavigationView
+import androidx.fragment.app.Fragment
+import com.example.groceryshopping.databinding.ActivityHomeBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class Home : AppCompatActivity() {
-    lateinit var toggle : ActionBarDrawerToggle
+//    lateinit var toggle : ActionBarDrawerToggle
+    lateinit var bottomNavigation: BottomNavigationView
+    private lateinit var _binding: ActivityHomeBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
-        setSupportActionBar(findViewById(R.id.my_toolbar))
-
-        var drawerLayout : DrawerLayout = findViewById(R.id.drawer_layout)
-        val navView: NavigationView = findViewById(R.id.nav_view)
-
-        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
+        _binding = ActivityHomeBinding.inflate(layoutInflater)
+        val view = _binding.root
+        setContentView(view)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        navView.setNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.nav_home -> Toast.makeText(applicationContext, "click home", Toast.LENGTH_SHORT).show()
-                R.id.nav_new_brand -> Toast.makeText(applicationContext, "click new brand", Toast.LENGTH_SHORT).show()
-                R.id.nav_new_stock -> Toast.makeText(applicationContext, "click new stock", Toast.LENGTH_SHORT).show()
-                R.id.nav_contact -> Toast.makeText(applicationContext, "click contact", Toast.LENGTH_SHORT).show()
-                R.id.nav_log_out -> Toast.makeText(applicationContext, "click log out", Toast.LENGTH_SHORT).show()
+        bottomNavigation = _binding.bottomNavigation
+        bottomNavigation.setOnItemSelectedListener { item ->
+            when(item.itemId){
+                R.id.nav_home -> replaceFragment(HomeFragment(), item.title.toString() )
+                R.id.nav_search -> replaceFragment(SearchFragment(), item.title.toString() )
+                R.id.nav_bookmark -> replaceFragment(BookmarkFragment(), item.title.toString())
             }
-
             true
         }
+
+        replaceFragment(HomeFragment(), getString(R.string.title_home) )
+
+    }
+
+    private fun replaceFragment(fragment: Fragment, title: String){
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_layout, fragment)
+        fragmentTransaction.commit()
+        setTitle(title)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -47,8 +53,8 @@ class Home : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(toggle.onOptionsItemSelected(item))
-            return true
+//        if(toggle.onOptionsItemSelected(item))
+//            return true
 
         when (item.itemId) {
             R.id.action_search -> {

@@ -4,19 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginTop="@dimen/marginTop"
-    android:layout_marginStart="@dimen/marginStart">
+    android:layout_marginTop="@dimen/margin_Top"
+    android:layout_marginStart="@dimen/margin_Start">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="@dimen/empty_icon_width"
         android:layout_height="@dimen/empty_icon_height"
+        android:layout_marginTop="@dimen/margin_Top"
         android:src="@drawable/avatar"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/user_name"
-        android:paddingTop="@dimen/paddingTop"
+        android:paddingTop="@dimen/padding_Top"
+        android:layout_marginTop="@dimen/margin_Top"
         android:textAppearance="@style/nav_header_userName"
         android:text="user name"/>
 
@@ -24,11 +26,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/nav_header_email"
+        android:paddingTop="@dimen/padding_Top"
         android:text="userName@gmail.com"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/margin_Top"
         android:background="@color/black"/>
 </LinearLayout>

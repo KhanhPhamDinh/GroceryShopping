@@ -2,45 +2,38 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/signUp">
+    android:id="@+id/nav_graph">
 
-    <activity
-        android:id="@+id/signUp"
-        android:name="com.example.groceryshopping.SignUp"
-        android:label="activity_sign_up"
-        tools:layout="@layout/activity_sign_up">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.groceryshopping.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_signUp_to_home"
-            app:destination="@id/home"
-            app:popUpToInclusive="true"/>
-    </activity>
-    <activity
-        android:id="@+id/home"
-        android:name="com.example.groceryshopping.Home"
-        android:label="activity_home"
-        tools:layout="@layout/activity_home">
+            android:id="@+id/action_homeFragment_to_productFragment"
+            app:destination="@id/productFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="com.example.groceryshopping.ProductFragment"
+        android:label="fragment_product"
+        tools:layout="@layout/fragment_search" >
         <action
-            android:id="@+id/action_home_to_product"
-            app:destination="@id/product" />
-    </activity>
-    <activity
-        android:id="@+id/product"
-        android:name="com.example.groceryshopping.Product"
-        android:label="activity_product"
-        tools:layout="@layout/activity_product" >
+            android:id="@+id/action_productFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.example.groceryshopping.ProductDetailFragment"
+        android:label="fragment_product_detail"
+        tools:layout="@layout/fragment_bookmark" >
         <action
-            android:id="@+id/action_product_to_productDetail"
-            app:destination="@id/productDetail" />
-    </activity>
-    <activity
-        android:id="@+id/productDetail"
-        android:name="com.example.groceryshopping.ProductDetail"
-        android:label="activity_product_detail"
-        tools:layout="@layout/activity_product_detail" />
-    <activity
-        android:id="@+id/checkOut"
-        android:name="com.example.groceryshopping.CheckOut"
-        android:label="activity_check_out"
-        tools:layout="@layout/activity_check_out" />
+            android:id="@+id/action_productDetailFragment_to_checkOutFragment"
+            app:destination="@id/checkOutFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkOutFragment"
+        android:name="com.example.groceryshopping.CheckOutFragment"
+        android:label="fragment_check_out"
+        tools:layout="@layout/fragment_contact" />
 </navigation>

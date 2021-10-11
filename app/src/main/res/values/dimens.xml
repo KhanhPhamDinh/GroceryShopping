@@ -12,9 +12,21 @@
     <dimen name="navigation_item_icon_size">24dp</dimen>
     <dimen name="height_button">50dp</dimen>
     <dimen name="width_button">300dp</dimen>
+    <dimen name="margin_Top">20dp</dimen>
+    <dimen name="margin_Left">20dp</dimen>
+    <dimen name="margin_Start">20dp</dimen>
+    <dimen name="padding_Top">8dp</dimen>
 
     <!-- Home Activity component -->
-    <dimen name="marginTop">16dp</dimen>
-    <dimen name="marginStart">16dp</dimen>
-    <dimen name="paddingTop">8dp</dimen>
+    <dimen name="margin_Top_Home">16dp</dimen>
+    <dimen name="margin_Start_Home">16dp</dimen>
+    <dimen name="padding_Top_Home">8dp</dimen>
+
+    <!-- SignUp Activity component -->
+    <dimen name="margin_Top_textViewSignUp">50dp</dimen>
+    <dimen name="margin_Top_SignUp">20dp</dimen>
+    <dimen name="margin_Start_SignUp">20dp</dimen>
+    <dimen name="padding_Top_SignUp">8dp</dimen>
+    <dimen name="margin_end_SignUp">20dp</dimen>
+    <dimen name="margin_bottom_SignUp">10dp</dimen>
 </resources>

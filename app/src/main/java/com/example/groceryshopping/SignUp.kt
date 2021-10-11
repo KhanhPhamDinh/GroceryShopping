@@ -1,27 +1,62 @@
 package com.example.groceryshopping
 
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
+import android.util.Log
+import androidx.lifecycle.ViewModelProvider
+import com.example.groceryshopping.viewmodels.SignUpViewModel
+import com.example.groceryshopping.databinding.ActivitySignUpBinding
 
 class SignUp : AppCompatActivity() {
+
+    private lateinit var _binding: ActivitySignUpBinding
+    private lateinit var _signUpViewModel: SignUpViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
+        _binding = ActivitySignUpBinding.inflate(layoutInflater)
+        val view = _binding.root
+        setContentView(view)
 
-        val btnLogin: Button = findViewById(R.id.btnLogin)
-        val btnSignUp: Button = findViewById(R.id.btnSignUp)
+        Log.i("SignUp", "Called ViewModelProvider.get")
+        _signUpViewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
 
-        btnLogin.setOnClickListener {
-
+        _binding.buttonSignUp.setOnClickListener {
+            val intent = Intent(this, Login::class.java)
+            startActivity(intent)
         }
 
-        btnSignUp.setOnClickListener {
-            val intent = Intent(this, Home::class.java)
+        _binding.textViewLogin.setOnClickListener {
+            val intent = Intent(this, Login::class.java)
             startActivity(intent)
         }
     }
+
+    override fun onStart() {
+        super.onStart()
+    }
+
+    override fun onPause() {
+        super.onPause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+    }
+
+    override fun onStop() {
+        super.onStop()
+    }
+
+    fun signUp(){
+
+    }
+
 }

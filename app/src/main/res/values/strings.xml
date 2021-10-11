@@ -8,15 +8,23 @@
     <string name="action_notification">Notification</string>
     <string name="title_home">Home</string>
     <string name="title_product">New Stock</string>
+    <string name="title_product_detail">Product Detail</string>
     <string name="title_checkout">My Cart</string>
     <string name="email">userName@gmail.com</string>
     <string name="nav_home">Home</string>
-    <string name="nav_new_brand">New Brand</string>
-    <string name="nav_new_stock">New Stock</string>
-    <string name="nav_check_out">Check Out</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_bookmark">Bookmark</string>
     <string name="nav_contact">Contact</string>
     <string name="nav_profile">Profile</string>
     <string name="nav_log_out">Log out</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="create_new_account">Create new account!</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="name">Name</string>
+    <string name="have_an_account">Have an account? </string>
+    <string name="log_in">Log In</string>
+    <string name="agree_with_term_amp_conditions"><![CDATA[Agree with term & conditions]]></string>
+    <string name="do_not_have_account">"Don't have account? "</string>
 </resources>
