@@ -1,27 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment">
+
+<!--&lt;!&ndash; Wrapping the layout into /layout to make it available with data binding. &ndash;&gt;-->
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools">-->
+<!--    <data>-->
+
+<!--        <variable-->
+<!--            android:name="HomeFragmentViewModel"-->
+<!--            android:type="com.example.groceryshopping.ui.main.viewmodels.HomeViewModel" />-->
+<!--    </data>-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/black"
         android:fitsSystemWindows="true"
-        tools:context=".Home">
+        android:padding="@dimen/padding"
+        tools:context=".HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
+        <!-- TODO: Update blank fragment layout -->
         <TextView
+            android:id="@+id/lbl_top_five"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/title_home"
+            android:layout_height="wrap_content"
+            android:text="@string/top_five"
             android:textAppearance="@style/normal_text"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/white"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/most_popular_list"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.52"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_top_five" />
+
+        <TextView
+            android:id="@+id/lbl_latest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Lasted."
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/most_popular_list" />
+
+        <TextView
+            android:id="@+id/lbl_see_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="See more"
+            android:textColor="@color/tangerine_yellow"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/lbl_latest" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/latest_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_latest" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--</layout>-->
 </FrameLayout>

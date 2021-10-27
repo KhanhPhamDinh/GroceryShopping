@@ -1,12 +1,11 @@
 package com.example.groceryshopping
 
 import android.content.Intent
-import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
-import com.example.groceryshopping.viewmodels.SignUpViewModel
+import com.example.groceryshopping.ui.main.viewmodels.SignUpViewModel
 import com.example.groceryshopping.databinding.ActivitySignUpBinding
 
 class SignUp : AppCompatActivity() {

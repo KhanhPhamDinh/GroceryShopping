@@ -1,4 +1,4 @@
-package com.example.groceryshopping.models
+package com.example.groceryshopping.data.models
 
 data class UserRating(
     val imDbId: String,

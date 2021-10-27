@@ -22,6 +22,7 @@ class Home : AppCompatActivity() {
         _binding = ActivityHomeBinding.inflate(layoutInflater)
         val view = _binding.root
         setContentView(view)
+        setSupportActionBar(_binding.myToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         bottomNavigation = _binding.bottomNavigation
         bottomNavigation.setOnItemSelectedListener { item ->
@@ -43,13 +44,6 @@ class Home : AppCompatActivity() {
         fragmentTransaction.replace(R.id.frame_layout, fragment)
         fragmentTransaction.commit()
         setTitle(title)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu to use in the action bar
-        val inflater = menuInflater
-        inflater.inflate(R.menu.menu_main, menu)
-        return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

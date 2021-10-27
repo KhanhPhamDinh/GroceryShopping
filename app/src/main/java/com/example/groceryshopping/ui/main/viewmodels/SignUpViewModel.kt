@@ -1,4 +1,4 @@
-package com.example.groceryshopping.viewmodels
+package com.example.groceryshopping.ui.main.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

@@ -15,7 +15,13 @@
     <dimen name="margin_Top">20dp</dimen>
     <dimen name="margin_Left">20dp</dimen>
     <dimen name="margin_Start">20dp</dimen>
+    <dimen name="margin_Right">20dp</dimen>
+    <dimen name="margin_Left_20dp">20dp</dimen>
+    <dimen name="margin_Right_20dp">20dp</dimen>
+    <dimen name="margin_Left_8dp">8dp</dimen>
+    <dimen name="margin_Right_8dp">8dp</dimen>
     <dimen name="padding_Top">8dp</dimen>
+    <dimen name="padding">8dp</dimen>
 
     <!-- Home Activity component -->
     <dimen name="margin_Top_Home">16dp</dimen>

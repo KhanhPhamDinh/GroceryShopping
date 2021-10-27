@@ -1,6 +1,4 @@
-package com.example.groceryshopping.models
-
-import java.util.*
+package com.example.groceryshopping.data.models
 
 data class TitleData(
     val id: String,

@@ -1,4 +1,4 @@
-package com.example.groceryshopping.models
+package com.example.groceryshopping.data.models
 
 class SearchResult (val searchType: String,
                     val expression: String,
