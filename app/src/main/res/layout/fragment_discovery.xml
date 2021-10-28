@@ -15,34 +15,37 @@
         tools:context=".Discovery">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btn_All"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_Start"
+            android:layout_marginTop="@dimen/padding_Top"
             android:text="All"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="@dimen/margin_Start"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btn_most_popular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="@dimen/padding_Top"
             android:text="Most Popular"
-            app:layout_constraintStart_toEndOf="@+id/button2"
+            app:layout_constraintStart_toEndOf="@+id/btn_All"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/btn_coming_soon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="4dp"
-            android:text="Comming Soon"
-            app:layout_constraintStart_toEndOf="@+id/button3"
+            android:layout_marginTop="@dimen/padding_Top"
+            android:text="Coming Soon"
+            app:layout_constraintStart_toEndOf="@+id/btn_most_popular"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_discovery"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="20dp"
@@ -51,7 +54,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button3"
+            app:layout_constraintTop_toBottomOf="@+id/btn_most_popular"
             android:layout_marginLeft="@dimen/margin_Start"
             android:layout_marginRight="@dimen/margin_Start"/>
     </androidx.constraintlayout.widget.ConstraintLayout>

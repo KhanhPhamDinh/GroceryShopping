@@ -2,7 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -10,30 +11,36 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_productFragment"
+            android:id="@+id/action_home_fragment_to_discovery_fragment"
             app:destination="@id/discovery_fragment" />
+        <action
+            android:id="@+id/action_home_fragment_to_search_fragment"
+            app:destination="@id/search_fragment" />
+        <action
+            android:id="@+id/action_home_fragment_to_bookmark_fragment"
+            app:destination="@id/bookmark_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/searchFragment"
+        android:id="@+id/search_fragment"
         android:name="com.example.groceryshopping.SearchFragment"
         android:label="fragment_product"
         tools:layout="@layout/fragment_search" >
         <action
-            android:id="@+id/action_productFragment_to_productDetailFragment"
-            app:destination="@id/discovery_fragment" />
+            android:id="@+id/action_search_fragment_to_bookmark_fragment"
+            app:destination="@id/bookmark_fragment" />
     </fragment>
     <fragment
         android:id="@+id/discovery_fragment"
         android:name="com.example.groceryshopping.Discovery"
         android:label="fragment_product_detail"
-        tools:layout="@layout/fragment_bookmark" >
+        tools:layout="@layout/fragment_discovery" >
         <action
-            android:id="@+id/action_productDetailFragment_to_checkOutFragment"
-            app:destination="@id/checkOutFragment" />
+            android:id="@+id/action_discovery_fragment_to_bookmark_fragment"
+            app:destination="@id/bookmark_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/checkOutFragment"
-        android:name="com.example.groceryshopping.CheckOutFragment"
-        android:label="fragment_check_out"
-        tools:layout="@layout/fragment_contact" />
+        android:id="@+id/bookmark_fragment"
+        android:name="com.example.groceryshopping.BookmarkFragment"
+        android:label="fragment_bookmark"
+        tools:layout="@layout/fragment_bookmark" />
 </navigation>

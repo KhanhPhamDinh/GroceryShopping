@@ -8,6 +8,10 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.groceryshopping.databinding.ActivityHomeBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -15,7 +19,7 @@ class Home : AppCompatActivity() {
 //    lateinit var toggle : ActionBarDrawerToggle
     lateinit var bottomNavigation: BottomNavigationView
     private lateinit var _binding: ActivityHomeBinding
-
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,22 +31,25 @@ class Home : AppCompatActivity() {
         bottomNavigation = _binding.bottomNavigation
         bottomNavigation.setOnItemSelectedListener { item ->
             when(item.itemId){
-                R.id.nav_home -> replaceFragment(HomeFragment(), item.title.toString() )
-                R.id.nav_search -> replaceFragment(SearchFragment(), item.title.toString() )
-                R.id.nav_bookmark -> replaceFragment(BookmarkFragment(), item.title.toString())
+                R.id.nav_home -> replaceFragment(R.id.homeFragment, item.title.toString() )
+                R.id.nav_search -> replaceFragment(R.id.search_fragment, item.title.toString() )
+                R.id.nav_bookmark -> replaceFragment(R.id.bookmark_fragment, item.title.toString())
             }
             true
         }
 
-        replaceFragment(HomeFragment(), getString(R.string.title_home) )
+        // Get the navigation host fragment from this Activity
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        // Instantiate the navController using the NavHostFragment
+        navController = navHostFragment.navController
+        // Make sure actions in the ActionBar get propagated to the NavController
+        setupActionBarWithNavController(navController)
 
     }
 
-    private fun replaceFragment(fragment: Fragment, title: String){
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frame_layout, fragment)
-        fragmentTransaction.commit()
+    private fun replaceFragment(id: Int, title: String){
+        navController.navigate(id)
         setTitle(title)
     }
 

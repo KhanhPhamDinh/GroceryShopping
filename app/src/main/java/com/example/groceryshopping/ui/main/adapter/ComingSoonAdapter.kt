@@ -46,13 +46,13 @@ class ComingSoonAdapter: RecyclerView.Adapter<ComingSoonAdapter.ViewHolder>() {
 //
         fun bind(item: MoviesComing) {
             lblTitleFilm.text = item.fullTitle
-//            if(!item.imDbRating.isEmpty()) {
-//                lblRating.text = (item.imDbRating.toFloat() / 2).toString()
-//                ratingBar.rating = Math.round(item.imDbRating.toFloat()/2).toFloat()
-//            }else{
-//                lblRating.text = "0"
-//                ratingBar.rating = 0.toFloat()
-//            }
+            if(!item.imDbRating.isEmpty()) {
+                lblRating.text = (item.imDbRating.toFloat() / 2).toString()
+                ratingBar.rating = Math.round(item.imDbRating.toFloat()/2).toFloat()
+            }else{
+                lblRating.text = "0"
+                ratingBar.rating = 0.toFloat()
+            }
             val options: RequestOptions = RequestOptions()
                 .centerCrop()
                 .placeholder(R.mipmap.ic_launcher_round)

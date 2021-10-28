@@ -10,18 +10,53 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context=".Home">
+        tools:context=".SearchFragment">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
+
+        <Button
+        android:id="@+id/btn_search_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="All"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="@dimen/margin_Start"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_search_most_popular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Most Popular"
+            app:layout_constraintStart_toEndOf="@+id/btn_search_all"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_search_coming_soon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="4dp"
+            android:text="Coming Soon"
+            app:layout_constraintStart_toEndOf="@+id/btn_search_most_popular"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_search"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="@string/title_product"
-            android:textAppearance="@style/normal_text"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toBottomOf="@+id/btn_search_most_popular"
+            android:layout_marginLeft="@dimen/margin_Start"
+            android:layout_marginRight="@dimen/margin_Start"/>
 
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

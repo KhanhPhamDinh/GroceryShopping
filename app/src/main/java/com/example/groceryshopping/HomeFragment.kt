@@ -1,11 +1,15 @@
 package com.example.groceryshopping
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import com.example.groceryshopping.data.api.ComingSoonApi
 import com.example.groceryshopping.data.api.MostPopularApi
 import com.example.groceryshopping.data.models.ComingSoonMovies
@@ -29,6 +33,7 @@ class HomeFragment : Fragment() {
     private lateinit var adapterMostPopularAdapter: MostPopularAdapter
     private lateinit var adapterComingSoonAdapter: ComingSoonAdapter
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var navController: NavController
 
     /**
      * Lazily initialize our [HomeViewModel].
@@ -58,6 +63,9 @@ class HomeFragment : Fragment() {
         binding.latestList.adapter = adapterComingSoonAdapter
         initData()
 
+        binding.lblSeeMore.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_home_fragment_to_discovery_fragment);
+        }
         // Inflate the layout for this fragment
         return binding.root
     }
@@ -93,14 +101,4 @@ class HomeFragment : Fragment() {
         });
     }
 
-
-//    override fun onResponse(call: Call<MostPopularMovies>, response: Response<MostPopularMovies>) {
-//        //TODO("Not yet implemented")
-//        adapterMostPopularAdapter.data = response.body()!!.items
-//    }
-//
-//    override fun onFailure(call: Call<MostPopularMovies>, t: Throwable) {
-//        //TODO("Not yet implemented")
-//        print("print error" + t.message)
-//    }
 }
