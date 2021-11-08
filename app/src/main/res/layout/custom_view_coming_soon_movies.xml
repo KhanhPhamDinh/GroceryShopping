@@ -14,7 +14,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:srcCompat="@android:drawable/ic_popup_sync" />
 
     <TextView
         android:id="@+id/coming_lbl_title_film"

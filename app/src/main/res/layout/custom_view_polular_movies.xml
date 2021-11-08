@@ -17,7 +17,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@android:drawable/ic_popup_sync" />
 
     <TextView
         android:id="@+id/lblTitleFilm"
@@ -45,7 +46,7 @@
 
     <RatingBar
         android:id="@+id/ratingBar"
-        style="@android:style/Widget.Holo.Light.RatingBar.Small"
+        style="@android:style/Widget.Holo.RatingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"

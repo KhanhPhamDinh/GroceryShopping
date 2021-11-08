@@ -35,16 +35,22 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:text="TextView"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/discovery_rating" />
 
     <RatingBar
         android:id="@+id/discovery_rating"
+        style="@android:style/Widget.Holo.RatingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="false"
+        android:numStars="5"
+        android:progressTint="@color/tangerine_yellow"
+        android:rating="3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/discovery_lbl_rating" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,11 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.groceryshopping.R
-import com.example.groceryshopping.data.models.Movies
+import com.example.groceryshopping.data.models.Movie
 
 
 class MostPopularAdapter: RecyclerView.Adapter<MostPopularAdapter.ViewHolder>() {
-    var data = listOf<Movies>()
+    var data = listOf<Movie>()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -42,7 +42,7 @@ class MostPopularAdapter: RecyclerView.Adapter<MostPopularAdapter.ViewHolder>() 
         private val ratingBar: RatingBar = itemView.findViewById(R.id.ratingBar)
 
 
-        fun bind(item: Movies) {
+        fun bind(item: Movie) {
             lblTitleFilm.text = item.fullTitle
             if(!item.imDbRating.isEmpty()) {
                 lblRating.text = (item.imDbRating.toFloat() / 2).toString()
@@ -73,12 +73,12 @@ class MostPopularAdapter: RecyclerView.Adapter<MostPopularAdapter.ViewHolder>() 
 }
 
 
-class MostPopularMoviesDiffCallback : DiffUtil.ItemCallback<Movies>() {
-    override fun areItemsTheSame(oldItem: Movies, newItem: Movies): Boolean {
+class MostPopularMoviesDiffCallback : DiffUtil.ItemCallback<Movie>() {
+    override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
         return oldItem.id == newItem.id
     }
 
-    override fun areContentsTheSame(oldItem: Movies, newItem: Movies): Boolean {
+    override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean {
         return oldItem == newItem
     }
 }

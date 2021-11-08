@@ -12,11 +12,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.groceryshopping.R
 import com.example.groceryshopping.data.models.ComingSoonMovies
-import com.example.groceryshopping.data.models.Movies
-import com.example.groceryshopping.data.models.MoviesComing
+import com.example.groceryshopping.data.models.Movie
+import com.example.groceryshopping.data.models.MovieComing
 
 class ComingSoonAdapter: RecyclerView.Adapter<ComingSoonAdapter.ViewHolder>() {
-    var data = listOf<MoviesComing>()
+    var data = listOf<MovieComing>()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -44,7 +44,7 @@ class ComingSoonAdapter: RecyclerView.Adapter<ComingSoonAdapter.ViewHolder>() {
         private val lblPlot: TextView = itemView.findViewById(R.id.coming_lbl_plot)
 //
 //
-        fun bind(item: MoviesComing) {
+        fun bind(item: MovieComing) {
             lblTitleFilm.text = item.fullTitle
             if(!item.imDbRating.isEmpty()) {
                 lblRating.text = (item.imDbRating.toFloat() / 2).toString()
@@ -75,12 +75,12 @@ class ComingSoonAdapter: RecyclerView.Adapter<ComingSoonAdapter.ViewHolder>() {
 }
 
 
-class ComingSoonMoviesDiffCallback : DiffUtil.ItemCallback<Movies>() {
-    override fun areItemsTheSame(oldItem: Movies, newItem: Movies): Boolean {
+class ComingSoonMoviesDiffCallback : DiffUtil.ItemCallback<Movie>() {
+    override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
         return oldItem.id == newItem.id
     }
 
-    override fun areContentsTheSame(oldItem: Movies, newItem: Movies): Boolean {
+    override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean {
         return oldItem == newItem
     }
 }

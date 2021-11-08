@@ -7,11 +7,11 @@ import com.squareup.moshi.Json
 import kotlinx.android.parcel.Parcelize
 
 data class ComingSoonMovies(
-    @Json(name = "items") val items: List<MoviesComing>
+    @Json(name = "items") val items: List<MovieComing>
 )
 
 @Parcelize
-data class MoviesComing(
+data class MovieComing(
     val id: String,
     val title: String,
     val fullTitle: String,
@@ -27,6 +27,7 @@ data class MoviesComing(
     //val genreList: String,
     val stars: String,
     val directors: String,
-    val imDbRating: String,
-    val imDbRatingCount: String): Parcelable {
+    @Json(name = "imDbRating") val imDbRating: String = "",
+    @Json(name = "imDbRatingCount") val imDbRatingCount: String = ""
+): Parcelable {
 }

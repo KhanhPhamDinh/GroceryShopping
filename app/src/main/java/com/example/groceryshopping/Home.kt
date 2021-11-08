@@ -1,16 +1,11 @@
 package com.example.groceryshopping
 
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.groceryshopping.databinding.ActivityHomeBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -53,6 +48,9 @@ class Home : AppCompatActivity() {
         setTitle(title)
     }
 
+    fun setActionBarTitle(title: String) {
+        supportActionBar!!.title = title
+    }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 //        if(toggle.onOptionsItemSelected(item))
 //            return true

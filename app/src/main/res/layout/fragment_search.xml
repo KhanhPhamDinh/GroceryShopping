@@ -14,48 +14,67 @@
 
 
         <Button
-        android:id="@+id/btn_search_all"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="All"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="@dimen/margin_Start"
-        app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/btn_search_most_popular"
+            android:id="@+id/btn_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="Most Popular"
-            app:layout_constraintStart_toEndOf="@+id/btn_search_all"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/btn_search_coming_soon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="4dp"
-            android:text="Coming Soon"
-            app:layout_constraintStart_toEndOf="@+id/btn_search_most_popular"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginTop="20dp"
+            android:text="@string/search"
+            app:layout_constraintEnd_toEndOf="@+id/list_search"
+            app:layout_constraintTop_toBottomOf="@+id/btn_All" />
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_search"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/margin_Start"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginRight="@dimen/margin_Start"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_search_most_popular"
-            android:layout_marginLeft="@dimen/margin_Start"
-            android:layout_marginRight="@dimen/margin_Start"/>
+            app:layout_constraintTop_toBottomOf="@+id/btn_search" />
 
+        <EditText
+            android:id="@+id/editText_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/name"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_search"
+            app:layout_constraintEnd_toStartOf="@+id/btn_search"
+            app:layout_constraintStart_toStartOf="@+id/list_search"
+            app:layout_constraintTop_toTopOf="@+id/btn_search" />
+
+        <Button
+            android:id="@+id/btn_All"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/all"
+            app:layout_constraintStart_toStartOf="@+id/editText_search"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:text="@string/name"
+            app:layout_constraintStart_toEndOf="@+id/btn_All"
+            app:layout_constraintTop_toTopOf="@+id/btn_All" />
+
+        <Button
+            android:id="@+id/btn_Movie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:text="@string/movie"
+            app:layout_constraintStart_toEndOf="@+id/btn_Name"
+            app:layout_constraintTop_toTopOf="@+id/btn_All" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

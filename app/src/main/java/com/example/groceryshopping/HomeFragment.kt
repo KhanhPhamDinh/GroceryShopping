@@ -52,6 +52,8 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val application = requireNotNull(activity).application
+        (activity as Home)
+            .setActionBarTitle("Home")
         binding = FragmentHomeBinding.inflate(inflater)
 
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
@@ -66,6 +68,7 @@ class HomeFragment : Fragment() {
         binding.lblSeeMore.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_home_fragment_to_discovery_fragment);
         }
+
         // Inflate the layout for this fragment
         return binding.root
     }

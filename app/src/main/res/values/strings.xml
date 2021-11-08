@@ -28,6 +28,7 @@
     <string name="agree_with_term_amp_conditions"><![CDATA[Agree with term & conditions]]></string>
     <string name="do_not_have_account">"Don't have account? "</string>
     <string name="top_five">Top Five.</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">Search</string>
+    <string name="all">All</string>
+    <string name="movie">Movie</string>
 </resources>
