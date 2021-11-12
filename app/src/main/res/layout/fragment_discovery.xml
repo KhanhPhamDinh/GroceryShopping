@@ -15,32 +15,41 @@
         tools:context=".DiscoveryFragment">
 
         <Button
-            android:id="@+id/btn_All"
+            android:id="@+id/btn_boxOffice"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_Start"
             android:layout_marginTop="@dimen/padding_Top"
+            android:background="@drawable/button_bg_selector"
             android:text="Box Office"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btn_most_popular"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="@dimen/padding_Top"
+            android:background="@drawable/button_bg_selector"
             android:text="Most Popular"
-            app:layout_constraintStart_toEndOf="@+id/btn_All"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/btn_boxOffice"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btn_coming_soon"
+            style="@style/Widget.AppCompat.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="@dimen/padding_Top"
+            android:background="@drawable/button_bg_selector"
             android:text="Coming Soon"
+            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/btn_most_popular"
             app:layout_constraintTop_toTopOf="parent" />
 

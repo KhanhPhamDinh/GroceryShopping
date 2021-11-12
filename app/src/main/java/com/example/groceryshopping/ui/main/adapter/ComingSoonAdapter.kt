@@ -1,15 +1,21 @@
 package com.example.groceryshopping.ui.main.adapter
 
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.Target
 import com.example.groceryshopping.R
 import com.example.groceryshopping.data.models.ComingSoonMovies
 import com.example.groceryshopping.data.models.Movie
@@ -42,7 +48,7 @@ class ComingSoonAdapter: RecyclerView.Adapter<ComingSoonAdapter.ViewHolder>() {
         private val ratingBar: RatingBar = itemView.findViewById(R.id.coming_ratingBar)
         private val lblGenres: TextView = itemView.findViewById(R.id.coming_lbl_genres)
         private val lblPlot: TextView = itemView.findViewById(R.id.coming_lbl_plot)
-//
+        private val progressBar : ProgressBar = itemView.findViewById(R.id.coming_progressbar)
 //
         fun bind(item: MovieComing) {
             lblTitleFilm.text = item.fullTitle
@@ -55,9 +61,29 @@ class ComingSoonAdapter: RecyclerView.Adapter<ComingSoonAdapter.ViewHolder>() {
             }
             val options: RequestOptions = RequestOptions()
                 .centerCrop()
-                .placeholder(R.mipmap.ic_launcher_round)
                 .error(R.mipmap.ic_launcher_round)
-            Glide.with(itemView).load(item.image).apply(options).into(imageFilm)
+            Glide.with(itemView).load(item.image).listener(object : RequestListener<Drawable>{
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    progressBar.setVisibility(View.GONE);
+                    return false;
+                }
+
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    dataSource: DataSource?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    progressBar.setVisibility(View.GONE);
+                    return false;
+                }
+            }).apply(options).into(imageFilm)
             lblGenres.text = item.genres
             lblPlot.text = item.plot
         }

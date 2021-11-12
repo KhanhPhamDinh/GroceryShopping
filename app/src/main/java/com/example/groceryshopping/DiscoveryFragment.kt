@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.Nullable
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.groceryshopping.data.api.BoxOfficeApi
@@ -47,54 +48,37 @@ class DiscoveryFragment : Fragment() {
             .setActionBarTitle("Discovery")
         binding = FragmentDiscoveryBinding.inflate(inflater)
 
+
         adapterDiscoveryAdapter = DiscoveryAdapter()
         binding.listDiscovery.adapter = adapterDiscoveryAdapter
 
         initData()
 
         binding.btnMostPopular.setOnClickListener {
-            binding.btnAll.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.pink_wan))
-            binding.btnComingSoon.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.pink_wan))
-            it.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.tangerine_yellow))
-            MostPopularApi.retrofitService.getMostPopularMovies("k_4j6l0tcu").enqueue(object : Callback<MostPopularMovies>{
-                override fun onResponse(
-                    call: Call<MostPopularMovies>,
-                    response: Response<MostPopularMovies>
-                ) {
-                    adapterDiscoveryAdapter.typeAdapter = "MOSTPOPULAR"
-                    adapterDiscoveryAdapter.dataMostPopular = response.body()!!.items
-                }
-
-                override fun onFailure(call: Call<MostPopularMovies>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
+            clickMostPopular();
         }
 
         binding.btnComingSoon.setOnClickListener {
-            binding.btnAll.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.pink_wan))
-            binding.btnMostPopular.setBackgroundColor(ContextCompat.getColor(requireContext(),R.color.pink_wan))
-            it.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.tangerine_yellow))
-            ComingSoonApi.retrofitService.getComingSoonMovies("k_4j6l0tcu").enqueue(object : Callback<ComingSoonMovies>{
-                override fun onResponse(
-                    call: Call<ComingSoonMovies>,
-                    response: Response<ComingSoonMovies>
-                ) {
-                    adapterDiscoveryAdapter.typeAdapter = "COMINGSOON"
-                    adapterDiscoveryAdapter.dataComingSoon = response.body()!!.items
-                }
-
-                override fun onFailure(call: Call<ComingSoonMovies>, t: Throwable) {
-                    print("print error" + t.message)
-                }
-            })
+            clickComingSoon();
         }
 
-        binding.btnAll.setOnClickListener {
-            binding.btnMostPopular.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.pink_wan))
-            binding.btnComingSoon.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.pink_wan))
-            it.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.tangerine_yellow))
-            BoxOfficeApi.retrofitService.getBoxOfficeMovies("k_4j6l0tcu").enqueue(object : Callback<BoxOfficeMovies>{
+        binding.btnBoxOffice.setOnClickListener {
+            clickBoxOfficeButton();
+        }
+        return binding.root
+    }
+
+    private fun initData() {
+        clickBoxOfficeButton()
+    }
+
+    private fun clickBoxOfficeButton() {
+        binding.btnBoxOffice.isSelected = true
+        binding.btnMostPopular.isSelected = false
+        binding.btnComingSoon.isSelected = false
+
+        BoxOfficeApi.retrofitService.getBoxOfficeMovies("k_4j6l0tcu")
+            .enqueue(object : Callback<BoxOfficeMovies> {
                 override fun onResponse(
                     call: Call<BoxOfficeMovies>,
                     response: Response<BoxOfficeMovies>
@@ -107,23 +91,45 @@ class DiscoveryFragment : Fragment() {
                     print("print error" + t.message)
                 }
             });
-        }
-        return binding.root
     }
 
-    private fun initData(){
-        BoxOfficeApi.retrofitService.getBoxOfficeMovies("k_4j6l0tcu").enqueue(object : Callback<BoxOfficeMovies>{
+    private fun clickMostPopular() {
+        binding.btnMostPopular.isSelected = true
+        binding.btnBoxOffice.isSelected = false
+        binding.btnComingSoon.isSelected = false
+
+        MostPopularApi.retrofitService.getMostPopularMovies("k_4j6l0tcu")
+            .enqueue(object : Callback<MostPopularMovies> {
+                override fun onResponse(
+                    call: Call<MostPopularMovies>,
+                    response: Response<MostPopularMovies>
+                ) {
+                    adapterDiscoveryAdapter.typeAdapter = "MOSTPOPULAR"
+                    adapterDiscoveryAdapter.dataMostPopular = response.body()!!.items
+                }
+
+                override fun onFailure(call: Call<MostPopularMovies>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+            })
+    }
+
+    private fun clickComingSoon() {
+        binding.btnMostPopular.isSelected = false
+        binding.btnBoxOffice.isSelected = false
+        binding.btnComingSoon.isSelected = true
+        ComingSoonApi.retrofitService.getComingSoonMovies("k_4j6l0tcu").enqueue(object : Callback<ComingSoonMovies>{
             override fun onResponse(
-                call: Call<BoxOfficeMovies>,
-                response: Response<BoxOfficeMovies>
+                call: Call<ComingSoonMovies>,
+                response: Response<ComingSoonMovies>
             ) {
-                adapterDiscoveryAdapter.typeAdapter = "BOXOFFICE"
-                adapterDiscoveryAdapter.dataBoxOffice = response.body()!!.items
+                adapterDiscoveryAdapter.typeAdapter = "COMINGSOON"
+                adapterDiscoveryAdapter.dataComingSoon = response.body()!!.items
             }
 
-            override fun onFailure(call: Call<BoxOfficeMovies>, t: Throwable) {
+            override fun onFailure(call: Call<ComingSoonMovies>, t: Throwable) {
                 print("print error" + t.message)
             }
-        });
+        })
     }
 }

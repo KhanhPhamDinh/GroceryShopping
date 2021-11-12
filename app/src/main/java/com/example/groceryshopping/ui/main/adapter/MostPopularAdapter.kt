@@ -1,15 +1,22 @@
 package com.example.groceryshopping.ui.main.adapter
 
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.Target
 import com.example.groceryshopping.R
 import com.example.groceryshopping.data.models.Movie
 
@@ -40,7 +47,7 @@ class MostPopularAdapter: RecyclerView.Adapter<MostPopularAdapter.ViewHolder>() 
         private val imageFilm: ImageView = itemView.findViewById(R.id.imageFilm)
         private val imageBookmark: ImageView = itemView.findViewById(R.id.imageBoomark)
         private val ratingBar: RatingBar = itemView.findViewById(R.id.ratingBar)
-
+        private val progressBar : ProgressBar = itemView.findViewById(R.id.progressBar)
 
         fun bind(item: Movie) {
             lblTitleFilm.text = item.fullTitle
@@ -51,11 +58,33 @@ class MostPopularAdapter: RecyclerView.Adapter<MostPopularAdapter.ViewHolder>() 
                 lblRating.text = "0"
                 ratingBar.rating = 0.toFloat()
             }
+
             val options: RequestOptions = RequestOptions()
                 .centerCrop()
-                .placeholder(R.mipmap.ic_launcher_round)
                 .error(R.mipmap.ic_launcher_round)
-            Glide.with(itemView).load(item.image).apply(options).into(imageFilm)
+
+            Glide.with(itemView).load(item.image).listener(object: RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    progressBar.setVisibility(View.GONE);
+                    return false
+                }
+
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    dataSource: DataSource?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    progressBar.setVisibility(View.GONE);
+                    return false
+                }
+            }).apply(options).into(imageFilm)
             imageBookmark.setImageResource(R.drawable.ic_bookmark_default)
 
         }

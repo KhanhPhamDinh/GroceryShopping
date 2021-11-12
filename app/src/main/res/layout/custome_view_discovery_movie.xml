@@ -15,8 +15,7 @@
         app:layout_constraintBottom_toTopOf="@+id/discovery_lbl_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/avatar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/discovery_lbl_title"
@@ -53,4 +52,14 @@
         android:rating="3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/discovery_lbl_rating" />
+
+    <ProgressBar
+        android:id="@+id/discovery_progressbar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/discovery_lbl_title"
+        app:layout_constraintEnd_toEndOf="@+id/discovery_img_poster"
+        app:layout_constraintStart_toStartOf="@+id/discovery_img_poster"
+        app:layout_constraintTop_toTopOf="@+id/discovery_img_poster" />
 </androidx.constraintlayout.widget.ConstraintLayout>

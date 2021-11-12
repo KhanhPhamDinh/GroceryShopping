@@ -13,8 +13,7 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_popup_sync" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/coming_lbl_title_film"
@@ -80,5 +79,15 @@
         app:layout_constraintStart_toEndOf="@+id/coming_poster_film"
         app:layout_constraintTop_toBottomOf="@+id/coming_lbl_genres"
         app:layout_constraintVertical_bias="1.0" />
+
+    <ProgressBar
+        android:id="@+id/coming_progressbar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/coming_poster_film"
+        app:layout_constraintEnd_toEndOf="@+id/coming_poster_film"
+        app:layout_constraintStart_toStartOf="@+id/coming_poster_film"
+        app:layout_constraintTop_toTopOf="@+id/coming_poster_film" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

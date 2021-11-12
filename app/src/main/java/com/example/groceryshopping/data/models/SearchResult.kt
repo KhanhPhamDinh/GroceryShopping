@@ -2,7 +2,7 @@ package com.example.groceryshopping.data.models
 
 class SearchResult (val searchType: String,
                     val expression: String,
-                    val result: Array<SearchResult>,
+                    val result: Array<SearchData>,
                     val errorMessage: String)
 
 
