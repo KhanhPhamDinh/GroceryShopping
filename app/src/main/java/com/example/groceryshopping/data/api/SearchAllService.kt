@@ -7,7 +7,8 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.Path
+
 
 private const val BASE_URL =
     "https://imdb-api.com/en/"
@@ -35,8 +36,8 @@ private val retrofit = Retrofit.Builder()
  * A public interface that exposes the [SearchAllService] method
  */
 interface SearchAllService {
-    @GET("API/SearchAll")
-    fun getAll(@Query("APIKey") type: String): Call<SearchResult>
+    @GET("API/SearchAll/{APIKey}/{valueSearch}")
+    fun getAll(@Path("APIKey") type: String, @Path("valueSearch") valueSearch: String): Call<SearchResult>
 }
 
 /**

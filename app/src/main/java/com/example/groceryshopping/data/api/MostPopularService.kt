@@ -7,7 +7,7 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.Path
 
 private const val BASE_URL =
     "https://imdb-api.com/en/"
@@ -35,8 +35,8 @@ private val retrofit = Retrofit.Builder()
  * A public interface that exposes the [getMostPopularMovies] method
  */
 interface MostPopularService {
-    @GET("API/MostPopularMovies")
-    fun getMostPopularMovies(@Query("APIKey") type: String): Call<MostPopularMovies>
+    @GET("API/MostPopularMovies/{APIKey}")
+    fun getMostPopularMovies(@Path("APIKey") type: String): Call<MostPopularMovies>
 }
 
 

@@ -1,9 +1,12 @@
 package com.example.groceryshopping.data.models
 
-class SearchResult (val searchType: String,
-                    val expression: String,
-                    val result: Array<SearchData>,
-                    val errorMessage: String)
+import com.squareup.moshi.Json
+
+class SearchResult (
+    @Json(name = "searchType") val searchType: String = "",
+    @Json(name = "expression") val expression: String = "",
+    @Json(name = "results") val results: List<SearchData>
+    )
 
 
 data class SearchData(val id: String,

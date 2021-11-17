@@ -7,7 +7,7 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.Path
 
 private const val BASE_URL =
     "https://imdb-api.com/en/"
@@ -31,8 +31,8 @@ private val retrofit = Retrofit.Builder()
 
 
 interface BoxOfficeService {
-    @GET("API/BoxOffice")
-    fun getBoxOfficeMovies(@Query("APIKey") type: String): Call<BoxOfficeMovies>
+    @GET("API/BoxOffice/{APIKey}")
+    fun getBoxOfficeMovies(@Path("APIKey") type: String): Call<BoxOfficeMovies>
 }
 
 /**

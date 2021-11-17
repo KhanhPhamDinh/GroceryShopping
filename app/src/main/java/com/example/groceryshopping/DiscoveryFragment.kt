@@ -73,6 +73,7 @@ class DiscoveryFragment : Fragment() {
     }
 
     private fun clickBoxOfficeButton() {
+        binding.progressBar.setVisibility(View.VISIBLE)
         binding.btnBoxOffice.isSelected = true
         binding.btnMostPopular.isSelected = false
         binding.btnComingSoon.isSelected = false
@@ -83,17 +84,20 @@ class DiscoveryFragment : Fragment() {
                     call: Call<BoxOfficeMovies>,
                     response: Response<BoxOfficeMovies>
                 ) {
+                    binding.progressBar.setVisibility(View.GONE)
                     adapterDiscoveryAdapter.typeAdapter = "BOXOFFICE"
                     adapterDiscoveryAdapter.dataBoxOffice = response.body()!!.items
                 }
 
                 override fun onFailure(call: Call<BoxOfficeMovies>, t: Throwable) {
                     print("print error" + t.message)
+                    binding.progressBar.setVisibility(View.GONE)
                 }
             });
     }
 
     private fun clickMostPopular() {
+        binding.progressBar.setVisibility(View.VISIBLE)
         binding.btnMostPopular.isSelected = true
         binding.btnBoxOffice.isSelected = false
         binding.btnComingSoon.isSelected = false
@@ -104,17 +108,20 @@ class DiscoveryFragment : Fragment() {
                     call: Call<MostPopularMovies>,
                     response: Response<MostPopularMovies>
                 ) {
+                    binding.progressBar.setVisibility(View.GONE)
                     adapterDiscoveryAdapter.typeAdapter = "MOSTPOPULAR"
                     adapterDiscoveryAdapter.dataMostPopular = response.body()!!.items
                 }
 
                 override fun onFailure(call: Call<MostPopularMovies>, t: Throwable) {
-                    TODO("Not yet implemented")
+                    print("print error" + t.message)
+                    binding.progressBar.setVisibility(View.GONE)
                 }
             })
     }
 
     private fun clickComingSoon() {
+        binding.progressBar.setVisibility(View.VISIBLE)
         binding.btnMostPopular.isSelected = false
         binding.btnBoxOffice.isSelected = false
         binding.btnComingSoon.isSelected = true
@@ -123,12 +130,14 @@ class DiscoveryFragment : Fragment() {
                 call: Call<ComingSoonMovies>,
                 response: Response<ComingSoonMovies>
             ) {
+                binding.progressBar.setVisibility(View.GONE)
                 adapterDiscoveryAdapter.typeAdapter = "COMINGSOON"
                 adapterDiscoveryAdapter.dataComingSoon = response.body()!!.items
             }
 
             override fun onFailure(call: Call<ComingSoonMovies>, t: Throwable) {
                 print("print error" + t.message)
+                binding.progressBar.setVisibility(View.GONE)
             }
         })
     }
